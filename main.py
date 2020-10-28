@@ -1,2 +1,4 @@
-a = { "a": 1, "b": 2 }
-print(a.get("c", False))
+from tree import Tree
+
+a = Tree("(a or b) and (a or c)")
+print(a.simplify())

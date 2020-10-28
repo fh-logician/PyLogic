@@ -113,6 +113,7 @@ expr1 = Tree("not a")  # This will set it to a Variable
 
 The Quine-McCluskey algorithm is built into this so there is no need to depend on other Quine-McCluskey
 packages to use in PyLogic.
+ * Note: Once I regain access to my PyPI account, I will make my own Quine-McCluskey code a requirement for this
 
 To use it, you just need to call the `simplify` method which will return a new `Tree` object of the
 simplified expression.

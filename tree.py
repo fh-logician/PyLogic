@@ -87,7 +87,7 @@ class Tree:
 
         # The parse_tree is an ident (Variable)
         return {
-            "value": parse_tree.value,
+            "variable": parse_tree.value,
             "has_not": False
         }, [parse_tree.value]
     
@@ -240,13 +240,13 @@ class Tree:
         minterm_qm = QM(
             self.variables,
             true_at_minterms
-        ).get_function()
+        ).solve()
 
         maxterm_qm = QM(
             self.variables,
             true_at_maxterms,
             is_maxterm = True
-        ).get_function()
+        ).solve()
 
         # Either get the minterm or the maxterm
         #   if neither is specified, get the shortest one
