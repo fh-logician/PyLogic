@@ -23,11 +23,13 @@ class Expression:
     XOR = "xor"
     XNOR = "xnor"
 
-    def __init__(self, operator: str=None, 
-                        left: Union['Expression', Variable]=None, 
-                        right: Union['Expression', Variable]=None, 
-                        has_not: bool=False, *,
-                        json: dict=None):
+    def __init__(
+            self, 
+            operator: str=None, 
+            left: Union['Expression', Variable]=None, 
+            right: Union['Expression', Variable]=None, 
+            has_not: bool=False, 
+            *, json: dict=None):
         
         # Check if the json is given
         if json is not None:
@@ -55,7 +57,7 @@ class Expression:
     def __str__(self) -> str:
         """Returns a string representation of this Expression"""
         if self.has_not:
-            return f"not({str(self.left)} {self.operator.upper()} {str(self.right)})"
+            return f"NOT({str(self.left)} {self.operator.upper()} {str(self.right)})"
         return f"({str(self.left)} {self.operator.upper()} {str(self.right)})"
     
     # # # # # # # # # # # # # # # # # # # #
@@ -94,7 +96,7 @@ class Expression:
         """
         if self.has_not:
             return f"not({self.operator}({self.left.functional()}, {self.right.functional()}))"
-        return f"{self.operator}({self.left.functional()}, {self.right.functional()})"
+        return f"{self.operator.lower()}({self.left.functional()}, {self.right.functional()})"
     
     def evaluate(self, truth_values: dict) -> bool:
         """Evaluates this Expression given a dict of truth values

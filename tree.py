@@ -103,7 +103,7 @@ class Tree:
             self.__variables.sort()
 
             # Check if the expression is a LogicNode or LogicVar
-            if "value" in expression:
+            if "variable" in expression:
                 self.__root = Variable(json = expression)
             else:
                 self.__root = Expression(json = expression)
@@ -129,6 +129,10 @@ class Tree:
         return self.__variables
     
     # # # # # # # # # # # # # # # # # # # #
+
+    def functional(self) -> str:
+        """Returns a functional representation of this Expression"""
+        return self.root.functional()
 
     def evaluate(self) -> bool:
         """Evaluates the root of this tree to get values for where the root
