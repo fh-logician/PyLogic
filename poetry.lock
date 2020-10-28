@@ -1,0 +1,16 @@
+[[package]]
+category = "main"
+description = "a modern parsing library"
+name = "lark-parser"
+optional = false
+python-versions = "*"
+version = "0.8.9"
+
+[metadata]
+content-hash = "48cd0e8dd8f53529697b07e81dd45ac7920e671701549304ffd502be75257b09"
+python-versions = "^3.8"
+
+[metadata.files]
+lark-parser = [
+    {file = "lark-parser-0.8.9.tar.gz", hash = "sha256:78915e9e59c7a3068830fd2d2cd733f7ab0cbea2d7928ebfaac4f8df10e4e989"},
+]
