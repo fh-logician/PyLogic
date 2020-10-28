@@ -45,6 +45,12 @@ class Expression:
         self.__right = right
         self.__has_not = has_not
     
+    def __str__(self) -> str:
+        """Returns a string representation of this Expression"""
+        if self.has_not:
+            return f"not({str(self.left)} {self.operator.upper()} {str(self.right)})"
+        return f"({str(self.left)} {self.operator.upper()} {str(self.right)})"
+    
     # # # # # # # # # # # # # # # # # # # #
 
     @property
