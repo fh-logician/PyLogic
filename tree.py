@@ -210,22 +210,14 @@ class Tree:
             ]
         return "{}\n{}\n{}".format(header, separator, values)
 
-    def simplify(self, get_minterm = None):
+    def simplify(self, *, get_minterm=None) -> 'Tree':
         """Simplifies the boolean expression at the root
         and returns the most simplified expression obtained from either minterm or maxterm
         evaluation
 
-        Parameters
-        ----------
-            get_minterm : boolean
-                Whether to get the minterm expression or the maxterm expression
-                Note that if this is None, the shortest expression will be given between
-                    the minterm and maxterm expression
-
-        Returns
-        -------
-            LogicTree
-                The simplified boolean expression
+        :param get_minterm: Whether or not to get the Minterm or Maxterm of this Tree
+            By default, this will return the shortest one between the two.
+        :returns: The simplifed boolean expression
         """
 
         # Get the minterm and maxterm true-at values
@@ -244,6 +236,7 @@ class Tree:
             if not evaluations[decimal]["truth_value"]
         ]
 
+        # Get the minterm and maxterm
         minterm_qm = QM(
             self.variables,
             true_at_minterms
@@ -255,6 +248,8 @@ class Tree:
             is_maxterm = True
         ).get_function()
 
+        # Either get the minterm or the maxterm
+        #   if neither is specified, get the shortest one
         if get_minterm is not None:
             if get_minterm:
                 return minterm_qm

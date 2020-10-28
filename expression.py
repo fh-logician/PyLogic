@@ -16,6 +16,13 @@ class Expression:
         Note: The "operator", "left", and "right" keys must exist
     """
 
+    OR = "or"
+    AND = "and"
+    NOR = "nor"
+    NAND = "nand"
+    XOR = "xor"
+    XNOR = "xnor"
+
     def __init__(self, operator: str=None, 
                         left: Union['Expression', Variable]=None, 
                         right: Union['Expression', Variable]=None, 

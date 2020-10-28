@@ -76,6 +76,12 @@ class Minterm:
 
 class QM:
     """A class to handle processing the Quine-McCluskey Algorithm.
+
+    :param variables: The variables to use in the algorithm
+    :param values: The decimal values where the expression evaluates to true
+        or false, depending on the is_maxterm value
+    :param dont_cares: A list of values where the expression has don't cares
+    :param is_maxterm: Whether or not to evaluate the algorithm as a Maxterm
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -131,6 +137,9 @@ class QM:
     def __power_set(self, values, prime_implicants):
         """Creates a power set of all valid prime implicants that covers
         the rest of an expression. This is used after the essential prime implicants have been found.
+
+        :param values: The values to use
+        :param prime_implicants: The prime implicants to create a power set from
         """
 
         # Get the power set of all the prime_implicants
@@ -175,6 +184,8 @@ class QM:
 
     def __get_prime_implicants(self, groups = None):
         """Recursively gets the prime implicants for the expression.
+
+        :param groups: The groups to process through
         """
 
         # Get initial group if group is None
@@ -328,6 +339,5 @@ class QM:
         return result
     
     def get_function(self):
-        """Returns the function
-        """
+        """Returns the function"""
         return self._function
