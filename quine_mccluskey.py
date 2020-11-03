@@ -71,7 +71,7 @@ class QM:
             #   is acting like a normal Minterm, other wise OR them together
             return "{}".format(" OR " if self.is_maxterm else " AND ").join([
                 "{}{}".format(
-                    "not " if bit_pattern[bit] == "0" else "",
+                    "NOT " if bit_pattern[bit] == ("1" if self.is_maxterm else "0") else "",
                     self.variables[bit]
                 )
                 for bit in range(len(bit_pattern))
@@ -144,7 +144,7 @@ class QM:
             for value in (self.values + minterm.values):
                 if value not in new_values:
                     new_values.append(value)
-            return QM.Minterm(new_values, self.variables)
+            return QM.Minterm(new_values, self.variables, is_maxterm = self.is_maxterm)
 
     def __init__(self, variables, values, *, dont_cares = [], is_maxterm = False):
         self.variables = variables

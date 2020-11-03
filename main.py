@@ -81,3 +81,14 @@ expr1 = Tree("not a")  # This will set it to a Variable
 
 print(type(expr.root))  # --> Expression
 print(type(expr1.root))  # --> Variable
+
+# # # # #
+
+a = Tree("a and b or a and c")
+b = Tree("a and (b or c)")
+
+print(a.get_table())
+print(b.get_table())
+
+print(str(a.simplify()))
+print(str(b.simplify()))
